@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+    // page
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          h1.title
+            | #{__('contact.company1')}
+          h1.intro
+            | #{__('contact.address1.title')}：	#{__('contact.address1.value')}
+          h1.intro
+            | #{__('contact.code1.title')}：	#{__('contact.code1.value')}
+          h1.intro
+            | #{__('contact.phone1.title')}：	#{__('contact.phone1.value')}
+          h1.intro
+            | #{__('contact.fax1.title')}：	#{__('contact.fax1.value')}
+        .inner_content
+          h1.title
+            | #{__('contact.company2')}
+          h1.intro
+            | #{__('contact.address2.title')}：  #{__('contact.address2.value')}
+          h1.intro
+            | #{__('contact.code2.title')}： #{__('contact.code2.value')}
+          h1.intro
+            | #{__('contact.phone2.title')}：  #{__('contact.phone2.value')}
+          h1.intro
+            | #{__('contact.fax2.title')}：  #{__('contact.fax2.value')}
+    .pad30
+    .container.wrapper
+      img(src='img/map.png')
+    // //page
+    // //page
+    include includes/footer
+    script.
+      $('#contact').addClass('active');

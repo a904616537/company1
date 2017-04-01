@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+    // page
+    // banner
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          h1.title #{__('news.list.title')}
+          h1.intro
+            | #{__('news.list.dec')}
+    .container.wrapper
+      .inner_content
+        .holder
+        // item container
+        .row
+          ul#itemContainer
+            each item in news
+              li
+                .span3.element.category02(data-category='category02')
+                  .hover_img
+                    a(href='#{item.imgurl}', data-rel='prettyPhoto[portfolio1]')
+                      img(src='#{item.imgurl}', alt='')
+                  .item_description
+                    a(href='/article/#{item._id}')
+                      span #{item.lang.title}
+                    br
+                    | #{item.lang.desc}
+            
+        .holder
+    // //page
+    // footer
+    // footer 2
+    include includes/footer
+    script(src='js/jPages.js')
+    // /* SET NUMBER OF IMAGES PER PAGE */
+    script(type='text/javascript').
+      $('#article').addClass('active');
+      //<![CDATA[
+      $(function(){
+        $("div.holder").jPages({
+          containerID  : "itemContainer",
+          perPage      : 8,
+          keyBrowse   : true,
+          previous: "← #{__('previous')}",
+          next: "#{__('next')} →"
+        });
+      });
+      //]]>

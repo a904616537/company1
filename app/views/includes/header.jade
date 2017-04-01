@@ -1,0 +1,56 @@
+// header
+.header
+  .container
+    // logo
+    button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+      i.fa.fa-bars
+    .logo
+      a(href='/')
+        h1
+        | #{settings.find(n => n.key == 'compamy_logo').value}
+    // menu
+    // menu
+    nav#main_menu
+      .nav-collapse.collapse
+        ul.nav.nav-pills
+          li#index.dropdown
+            a(href='/')
+              | #{__('mune.home')}
+          li#about.dropdown
+            a(href='javascript:{}')
+              | #{__('mune.about')}
+            ul.dropdown-menu
+              each item in nav.about
+                li
+                  a(href='/about/#{item._id}')
+                    | #{item.lang.title}
+          li#business.dropdown
+            a(href='javascript:{}')
+              | #{__('mune.server')}
+            ul.dropdown-menu
+              each item in nav.server
+                li
+                  a(href='/about/#{item._id}')
+                    | #{item.lang.title}
+          li#news.dropdown
+            a(href='/list')
+              | #{__('mune.news')}
+
+          li#contact.dropdown
+            a(href='#')
+              | #{__('mune.contact')}
+            ul.dropdown-menu
+              each item in nav.contact
+                li
+                  a(href='/about/#{item._id}')
+                    | #{item.lang.title}
+          
+          li
+            a.cut(href='javascript:switchEN();')
+              i(style='background-image: url(/img/EN.jpg);')
+              | English
+          li
+            a.cut(href='javascript:switchCH();')
+              i(style='background-image: url(/img/ZH.jpg);')
+              | 中文
+    // //header

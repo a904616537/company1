@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+    // page
+    // banner
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          h1.title
+            | #{__('vision.title')}
+          h1.intro
+            | #{__('vision.dec')}
+    .container.wrapper
+      .inner_content
+        .pad30
+        .row
+          .span8.offset2
+            .post
+              img(src='img/slider/2.jpg', alt='')
+              .pad30
+              !{__('vision.content')}
+              // //Comments
+              .pad25
+    // //page
+    include includes/footer
+    script(src='js/jPages.js')

@@ -1,0 +1,225 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+
+    .fullwidthbanner-container
+      .fullwidthbanner
+        // Slide 1
+        ul
+          each item in banner
+            li(data-transition='slidedown')
+              img(src='#{item.imgurl}', alt='#{item.title}')
+          
+        .tp-bannertimer.tp-bottom
+    // // END REVOLUTION SLIDER
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          // welcome
+          .welcome_index
+            span #{settings.find(n => n.key == 'compamy_name').value}
+            br
+            h4
+              | #{settings.find(n => n.key == 'slogan').value}
+          // //welcome
+    // //banner
+    .wra
+      .container.wrapper
+        .inner_content
+          .pad45
+          // info boxes
+          .row
+            .span3
+              .tile.tile-hot
+                - var company1 = nav.server[0]
+                a(href='/about/#{company1._id}')
+                  .intro-icon-disc.cont-large
+                    img(src='img/icon/ship48.png')
+                  h6
+                    a(href='/about/#{company1._id}')
+                      span #{company1.lang.title}
+                  p
+                    | #{company1.lang.subtext}
+              .pad25
+            .span3
+              .tile
+                - var company2 = nav.server[1]
+                a(href='/about/#{company2._id}')
+                  .intro-icon-disc.cont-large
+                    img(src='img/icon/plane48.png')
+                  h6
+                    a(href='/about/#{company2._id}')
+                      span #{company2.lang.title}
+                  p
+                    | #{company2.lang.subtext}
+              .pad25
+            .span3
+              .tile
+                - var company3 = nav.server[2]
+                a(href='/about/#{company3._id}')
+                  .intro-icon-disc.cont-large
+                    img(src='img/icon/truck48.png')
+                  h6
+                    a(href='/about/#{company3._id}')
+                      span #{company3.lang.title}
+                  p
+                    | #{company3.lang.subtext}
+              .pad25
+            .span3
+              .tile
+                - var company4 = nav.server[3]
+                a(href='/about/#{company4._id}')
+                  .intro-icon-disc.cont-large
+                    img(src='img/icon/money48.png')
+                  h6
+                    a(href='/about/#{company4._id}')
+                      span #{company4.lang.title}
+                  p
+                    | #{company4.lang.subtext}
+              .pad25
+            .center.w5
+              .span3
+                .tile
+                  - var company5 = nav.server[4]
+                  a(href='/about/#{company5._id}')
+                    .intro-icon-disc.cont-large
+                      img(src='img/icon/Customs48.png')
+                    h6
+                      a(href='/about/#{company5._id}')
+                        span #{company5.lang.title}
+                    p
+                      | #{company5.lang.subtext}
+                .pad25
+              .span3
+                .tile
+                  - var company6 = nav.server[5]
+                  a(href='/about/#{company6._id}')
+                    .intro-icon-disc.cont-large
+                      img(src='img/icon/bell48.png')
+                    h6
+                      a(href='/about/#{company6._id}')
+                        span #{company6.lang.title}
+                    p
+                      | #{company6.lang.subtext}
+                .pad25
+          // //info boxes
+          .row
+            // col 1
+            .span12
+              .row
+                .pad25.hidden-phone
+                .span4
+                  - var about = nav.about[0]
+                  h1  #{about.lang.title}
+                  p
+                    | #{about.lang.subtext}
+                  a.btn.btn-primary.btn-custom.btn-rounded(href='/about/#{about._id}') #{__('more')}
+                  .pad45
+                // column 2 slider
+                .span8.pad15.col_full2
+                  img(src='#{about.banner}', alt='')
+        // //page
+        .pad25.hidden-desktop
+      .container.wrapper
+        .inner_content
+          .pad30
+          .row
+            .span8
+              // skill bars
+              h2 #{__('business.title')}
+              .progress
+                .bar(data-percentage='80')
+              small #{__('business.1')}
+              .progress
+                .bar(data-percentage='60')
+              small #{__('business.2')}
+              .progress
+                .bar(data-percentage='95')
+              small #{__('business.3')}
+              .pad45.hidden-desktop
+            // testimonial
+            .span4.pad15
+              .testimonial1
+                p
+                  | !{__('mission.desc')}
+              .center
+                p
+                  a.btn.btn-primary.btn-custom.btn-rounded(href='/mission') #{__('mission.title')}
+              .pad45.hidden-desktop
+    // footer
+    #footer
+      a(href='/vision')
+        h1 #{__('vision.title')}
+      h3.center.follow
+        | #{__('vision.dec')}
+
+    include includes/footer
+    script(type='text/javascript', src='js/jquery.themepunch.plugins.min.js')
+    // slider settings
+    script.
+      //<![CDATA[
+      $(document).ready(function() {
+        if ($.fn.cssOriginal!=undefined)
+          $.fn.css = $.fn.cssOriginal;
+        $('.fullwidthbanner').revolution({
+          delay:9000,
+          startwidth:1170,
+          startheight:550,
+          onHoverStop:"on",
+          navigationType:"none",
+          soloArrowLeftHOffset:0,
+          soloArrowLeftVOffset:0,
+          soloArrowRightHOffset:0,
+          soloArrowRightVOffset:0,
+          touchenabled:"on",
+          fullWidth:"on",
+          shadow:0
+        });
+      });
+      //]]>
+    script(src='js/jquery.touchSwipe.min.js')
+    script(src='js/jquery.mousewheel.min.js')
+    script(type='text/javascript', src='js/jquery.prettyPhoto.js')
+    // carousel
+    script(type='text/javascript', src='js/jquery.carouFredSel-6.2.1-packed.js')
+    script(type='text/javascript').
+      $('#index').addClass('active');
+      //<![CDATA[
+      jQuery(document).ready(function($) {
+        $("#slider_home").carouFredSel({
+          width : "100%",
+          height : "auto",
+          responsive : true,
+          circular : true,
+          infinite  : false,
+          auto : false,
+          items : {
+            width : 231,
+            visible: {
+              min: 1,
+              max: 3
+            }
+          },
+          scroll: { items: 3, },
+          prev : { button : "#sl-prev", key : "left"},
+          next : { button : "#sl-next", key : "right" }
+        });
+      });
+      setTimeout(function(){
+        $('.progress .bar').each(function() {
+          var me = $(this);
+          var perc = me.attr("data-percentage");
+          var current_perc = 0;
+          var progress = setInterval(function() {
+            if (current_perc>=perc) {
+              clearInterval(progress);
+            } else {
+              current_perc +=1;
+              me.css('width', (current_perc) + '%');
+            }
+            me.text((current_perc) + '%');
+          }, 20);
+        });
+      },300);

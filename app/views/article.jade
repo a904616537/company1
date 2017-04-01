@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+    // page
+    // banner
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          h1
+            | 创建时间：#{news.time}
+                
+          h1.title
+            | #{news.lang.title}
+          h1.intro
+            | !{news.lang.desc}
+    .container.wrapper
+      .inner_content
+        .pad30
+        .row
+          .span8.offset2
+            .post
+              img(src='#{news.imgurl}', alt='')
+              .pad30
+              !{news.lang.context}
+              // //Comments
+              .pad25
+    // //page
+    include includes/footer
+    script(src='/js/jPages.js')
+    // /* SET NUMBER OF IMAGES PER PAGE */
+    script(type='text/javascript').
+      $('#article').addClass('active');
+      //<![CDATA[
+      $(function() {
+        $("div.holder").jPages({
+          containerID: "itemContainer",
+          perPage: 8,
+          keyBrowse: true
+        });
+      });
+      //]]>

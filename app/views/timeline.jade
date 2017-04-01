@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  include includes/head
+  body
+    include includes/header
+    // page
+    #banner
+      .container.intro_wrapper
+        .inner_content
+          h1 文化历程
+          h1.title 这些年经历过的事情
+          h1.intro
+            | 文化倡导人言词。
+            span.hue 这里是重点。
+            |  - Steve Jobs
+    .container.wrapper
+      .inner_content
+        .pad45
+        .main.fadeinup
+          ul.cbp_tmtimeline
+            li
+              time.cbp_tmtime
+                span 2011
+              .cbp_tmicon
+              .cbp_tmlabel
+                h2 讲重点
+                p 今年我们做了xxxx牛逼的事情。
+            li
+              time.cbp_tmtime
+                span 2012
+              .cbp_tmicon
+              .cbp_tmlabel
+                h2 讲重点
+                p 今年我们又做了xxxx牛逼的事情。
+            li
+              time.cbp_tmtime
+                span 2013
+              .cbp_tmicon
+              .cbp_tmlabel
+                h2 讲重点
+                p 今年我们又做了xxxx牛逼的事情。
+            li
+              time.cbp_tmtime
+                span 2014
+              .cbp_tmicon
+              .cbp_tmlabel
+                h2 讲重点
+                p 今年我们又做了xxxx牛逼的事情。
+            li
+              time.cbp_tmtime
+                span 2015
+              .cbp_tmicon
+              .cbp_tmlabel
+                h2 讲重点
+                p 今年我们又做了xxxx牛逼的事情。
+    // //page
+    // footer 2
+    include includes/footer
+    script.
+      $('#about').addClass('active');
