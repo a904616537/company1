@@ -42,6 +42,7 @@ module.exports = function (app) {
     var nav = [];
     var lang = req.cookies.lang
     if(lang == 'zh-CN') lang = 'zh';
+    else lang = 'en'
     console.log('lang', lang)
     setting_service.getSettingBylang(lang, (err, settings) => {
       banner_service.Get(banner => {
@@ -57,6 +58,7 @@ module.exports = function (app) {
     var nav = [];
     var lang = req.cookies.lang
     if(lang == 'zh-CN') lang = 'zh';
+    else lang = 'en'
     setting_service.getSettingBylang(lang, (err, settings) => {
       getnav(lang, date => {
         nav = date
@@ -78,6 +80,7 @@ module.exports = function (app) {
     var nav = [];
     var lang = req.cookies.lang
     if(lang == 'zh-CN') lang = 'zh';
+    else lang = 'en'
     setting_service.getSettingBylang(lang, (err, settings) => {
       news_service.SelectById(_id, lang, news => {
         getnav(lang, date => {
@@ -96,6 +99,7 @@ module.exports = function (app) {
     var nav = [];
     var lang = req.cookies.lang
     if(lang == 'zh-CN') lang = 'zh';
+    else lang = 'en'
     setting_service.getSettingBylang(lang, (err, settings) => {
       news_service.getNews(lang, news => {
         getnav(lang, date => {
