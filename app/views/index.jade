@@ -117,9 +117,29 @@ html(lang='en')
                     | #{about.lang.subtext}
                   a.btn.btn-primary.btn-custom.btn-rounded(href='/about/#{about._id}') #{__('more')}
                   .pad45
+                
                 // column 2 slider
                 .span8.pad15.col_full2
-                  img(src='#{about.banner}', alt='', style='max-height: 350px;')
+                  #slider_home
+
+                    each item,index in news
+                      .slider-item
+                        .slider-image
+                          .hover_colour
+                            a(href='/article/#{item._id}', data-rel='prettyPhoto')
+                              img(src='#{item.imgurl}', alt='')
+                        .slider-title
+                          h3
+                            a(href='#') #{item.lang.title}
+                          p #{item.lang.desc}
+
+
+
+                  #sl-prev.widget-scroll-prev
+                    i.fa.fa-chevron-left.white
+                  #sl-next.widget-scroll-next
+                    i.fa.fa-chevron-right.white.but_marg
+
         // //page
         .pad25.hidden-desktop
       .container.wrapper

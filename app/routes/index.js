@@ -46,9 +46,11 @@ module.exports = function (app) {
     console.log('lang', lang)
     setting_service.getSettingBylang(lang, (err, settings) => {
       banner_service.Get(banner => {
-        getnav(lang, date => {
-          nav = date
-          res.render('index', {nav: nav, settings, banner});
+        news_service.getNewsIndex(lang, news => {
+          getnav(lang, date => {
+            nav = date
+            res.render('index', {nav: nav, settings, banner, news});
+          })
         })  
       })    
     })
